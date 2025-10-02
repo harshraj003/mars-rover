@@ -142,14 +142,19 @@ Set rover’s starting point and direction (e.g., (0,0,N)).
 Give Commands:
 Single commands: M (move), L (left), R (right), S (status), Q (quit).
 Batch commands: Type MMRMLM or B for batch mode.
-2. Example Interaction
-Step	User Input	Program Output/Context
-Grid Setup	10, 10, 2	Sets 10x10 grid with 2 obstacles.
-Obstacle 1	2, 2	Places obstacle at (2, 2).
-Obstacle 2	3, 5	Places obstacle at (3, 5).
-Rover Setup	0, 0, N	Starts rover at (0, 0) facing North.
-Command	MMRMLM	Executes batch move/turn sequence.
-Command Execution Log:
+
+
+## 2. Example Interaction
+
+| Step | User Input | Program Output/Context |
+| :--- | :--- | :--- |
+| **Grid Setup** | `10`, `10`, `2` | Sets 10x10 grid with 2 obstacles. |
+| **Obstacle 1** | `2`, `2` | Places obstacle at (2, 2). |
+| **Obstacle 2** | `3`, `5` | Places obstacle at (3, 5). |
+| **Rover Setup** | `0`, `0`, `N` | Starts rover at (0, 0) facing North. |
+| **Command** | `MMRMLM` | Executes batch move/turn sequence. |
+
+**Command Execution Log:**
 
 2025-10-02T16:36:45 [INFO]: Rover moved to (0,1) facing N
 2025-10-02T16:36:45 [INFO]: Rover moved to (0,2) facing N
@@ -161,13 +166,18 @@ Enter command or batch: S
 Rover is at (1,3) facing N. Last 5 commands: M, M, R, M, L.
 Enter command or batch: Q
 Mission Control: Exiting...
-3. Handling Mistakes
-If you enter an invalid command (e.g., X), the system will log a warning and prompt you to retry (up to 3 attempts):
+---
+
+## 3. Handling Mistakes
+
+If you enter an invalid command (e.g., `X`), the system will log a warning and prompt you to retry (up to 3 attempts):
 
 Enter command or batch: X
 2025-10-02T16:36:45 [WARN]: Invalid input. Use M, L, R, S, Q, or a sequence. Attempt 1/3
-What’s in the Code?
-Project Structure
+
+## What’s in the Code?
+
+### Project Structure
 .gitignore: Skips temporary files like node_modules.
 README.md: This guide.
 package.json: Lists dependencies and scripts.
@@ -176,39 +186,43 @@ src/:
   main/: Core logic (e.g., Rover.ts, Terrain.ts).
   types/: Defines data types (e.g., Enums.ts for directions).
   utils/: Tools like Logger.ts and RetryOperation.ts.
-Code Highlights
-TypeScript: Ensures reliable code with strict typing.
+### Code Highlights
 
-Modular Design: Splits code into clear, focused files.
+* **TypeScript**: Ensures reliable code with strict typing.
+* **Modular Design**: Splits code into clear, focused files.
+* **Best Practices**: Follows **SOLID** principles for maintainability.
+* **Performance**: Uses **Set** for fast obstacle checks and an array for command history.
 
-Best Practices: Follows SOLID principles for maintainability.
+### Why It’s Great
 
-Performance: Uses Set for fast obstacle checks and an array for command history.
+* **Immersive**: Feels like a real Mars mission with “Mission Control” prompts.
+* **Smart Features**: Batch commands and history make it powerful.
+* **Reliable**: Stops at obstacles, retries invalid inputs, and logs actions.
+* **Clear Code**: Easy to read and extend, great for learning.
+* **Engaging**: Fun and interactive for all users.
 
-Why It’s Great
-Immersive: Feels like a real Mars mission with “Mission Control” prompts.
+---
 
-Smart Features: Batch commands and history make it powerful.
+## Testing the Program
 
-Reliable: Stops at obstacles, retries invalid inputs, and logs actions.
+### Test Cases
 
-Clear Code: Easy to read and extend, great for learning.
+| Scenario | Input | Expected Output Snippet |
+| :--- | :--- | :--- |
+| **Standard Run** | Grid 10x10, Obstacles (2,2), (3,5), Start (0,0,N), Commands M M R M L M S Q | `Rover is at (1,3) facing N. Last 5 commands: M, R, M, L, M.` |
+| **Batch Command** | Grid 10x10, Obstacles (2,2), (3,5), Start (0,0,N), Command MMRMLM | `Rover moved to (1,3) facing N` |
+| **Obstacle** | Grid 10x10, Obstacle (0,1), Start (0,0,N), Command M | `Cannot move to (0,1): Obstacle detected` |
 
-Engaging: Fun and interactive for all users.
+---
 
-Testing the Program
-Test Cases
-Scenario	Input	Expected Output Snippet
-Standard Run	Grid 10x10, Obstacles (2,2), (3,5), Start (0,0,N), Commands M M R M L M S Q	Rover is at (1,3) facing N. Last 5 commands: M, R, M, L, M.
-Batch Command	Grid 10x10, Obstacles (2,2), (3,5), Start (0,0,N), Command MMRMLM	Rover moved to (1,3) facing N
-Obstacle	Grid 10x10, Obstacle (0,1), Start (0,0,N), Command M	Cannot move to (0,1): Obstacle detected
-Future Improvements
-Add an “undo” command to reverse moves.
+## Future Improvements
 
-Show a visual grid in the console.
+* Add an **“undo”** command to reverse moves.
+* Show a visual grid in the console.
+* Add new commands like scanning terrain.
 
-Add new commands like scanning terrain.
+---
 
-Contact
-Reach out to Harsh Raj on GitHub: harshraj003 for questions or feedback.
+## Contact
 
+Reach out to **Harsh Raj** on GitHub: [harshraj003](https://github.com/harshraj003) for questions or feedback.
