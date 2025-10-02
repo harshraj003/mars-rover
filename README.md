@@ -142,6 +142,7 @@ Set rover’s starting point and direction (e.g., (0,0,N)).
 Give Commands:
 Single commands: M (move), L (left), R (right), S (status), Q (quit).
 Batch commands: Type MMRMLM or B for batch mode.
+```
 
 
 ## 2. Example Interaction
