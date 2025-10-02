@@ -156,7 +156,7 @@ Batch commands: Type MMRMLM or B for batch mode.
 | **Command** | `MMRMLM` | Executes batch move/turn sequence. |
 
 **Command Execution Log:**
-
+```
 2025-10-02T16:36:45 [INFO]: Rover moved to (0,1) facing N
 2025-10-02T16:36:45 [INFO]: Rover moved to (0,2) facing N
 2025-10-02T16:36:45 [INFO]: Rover turned right, now facing E
@@ -167,6 +167,7 @@ Enter command or batch: S
 Rover is at (1,3) facing N. Last 5 commands: M, M, R, M, L.
 Enter command or batch: Q
 Mission Control: Exiting...
+```
 ---
 
 ## 3. Handling Mistakes
