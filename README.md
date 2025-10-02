@@ -102,6 +102,7 @@ Enter rover starting y-coordinate (0-9): 0
 Enter rover direction (N, S, E, W): N
 Commands: M (move), L (left), R (right), S (status), B (batch), Q (quit)
 Batch example: MMRMLM (executes multiple commands)
+
 Enter command or batch: MMRMLM
 2025-10-02T15:10:45 [INFO]: Rover moved to (0,1) facing N
 2025-10-02T15:10:45 [INFO]: Rover moved to (0,2) facing N
@@ -110,8 +111,10 @@ Enter command or batch: MMRMLM
 2025-10-02T15:10:45 [INFO]: Rover turned left, now facing N
 2025-10-02T15:10:45 [INFO]: Rover moved to (1,3) facing N
 2025-10-02T15:10:45 [INFO]: Batch commands executed: MMRMLM
+
 Enter command or batch: S
 Rover is at (1,3) facing N. Last 5 commands: M, M, R, M, L.
+
 Enter command or batch: Q
 2025-10-02T15:10:45 [INFO]: Mission terminated
 Mission Control: Exiting...
